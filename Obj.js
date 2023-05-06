@@ -102,3 +102,50 @@ function pluck(objs, name) {
     }
     return res
 }
+
+//8. Remove duplicate words(забыл что можно использовать Set для создания коллекции с уникальными элементами)
+function removeDuplicateWords (s) {
+    const arr = s.split(' ')
+    const counter = {}
+    for (let i = 0; i < arr.length; i++) {
+        counter[arr[i]] = true;
+    }
+    return Object.keys(counter).join(' ');
+}
+
+//9. Find the unique number
+function findUnique(numbers) {
+    const counter = {}
+    for (let i = 0; i < numbers.length; i++) {
+        const current = numbers[i]
+        if(counter[current]) {
+            counter[current]++
+        } else {
+            counter[current] = 1;
+        }
+    }
+    const uniqueNumbers = [];
+    for (const [number, count] of Object.entries(counter)) {
+        if (count === 1) {
+            uniqueNumbers.push(number);
+        }
+    }
+    return parseInt(uniqueNumbers.join(' '));
+}
+
+//10. Coding Meetup #2 - Higher-Order Functions Series - Greet developers
+function greetDevelopers(list) {
+    for(let i = 0; i < list.length; i++) {
+        list[i].greeting = `Hi ${list[i].firstName}, what do you like the most about ${list[i].language}?`
+    }
+    return list
+}
+
+// 11. Convert Hash To An Array
+function convertHashToArray(hash){
+    return Object.entries(hash).sort()
+}
+
+//12. Kebabize - уже решал
+
+//13. 
