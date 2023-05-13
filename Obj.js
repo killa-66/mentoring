@@ -148,4 +148,39 @@ function convertHashToArray(hash){
 
 //12. Kebabize - уже решал
 
-//13. 
+//13. ??
+
+//14. Ip Validation ??
+
+//15. ??
+
+//16. From..To..Series #2: from arr1 to arr2. Find the most same sum value of pairs
+function findPair(arr1, arr2) {
+    let sum, pairs = {};
+    arr1.forEach(function(curr, i) {
+        sum = curr + arr2[i];
+        (pairs[sum] = pairs[sum] || []).push([curr, arr2[i]]);
+    });
+    let len, key, longest = [];
+    for (key in pairs) {
+        len = pairs[key].length;
+        if (len > 1 && len >= longest.length) {
+            longest = pairs[key];
+        }
+    }
+    return longest;
+}
+//17. Evaluating prefix Polish notation??
+
+//18
+//19 } Решал до этого
+//20
+//21
+
+//22 digital root
+function digitalRoot(n) {
+    while(n > 9) {
+        n = n.toString().split('').reduce((acc, curr) => acc + parseInt(curr), 0)
+    }
+    return n
+}
