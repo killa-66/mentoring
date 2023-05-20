@@ -5,8 +5,8 @@ const generFunc = (n) => {
     }
     return result
 }
-generFunc(10);
-//
+generFunc(3);
+// [1, 2 , 3]
 //
 //
 
