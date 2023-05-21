@@ -1,21 +1,3 @@
-// flatMap([1, 2], duplicate);
-// => [1, 1, 2, 2]
-
-// function flatMap(arr, duplicate) {
-//   let res = [];
-//   for(let i = 0; i < arr.length; i++) {
-//     res.push(duplicate(arr[i]))
-//   }
-//   return res.reduce((acc, el) => {
-//     if(typeof el === 'number') {
-//       acc.push(el)
-//     } else {
-//       acc.push(...el);
-//     }
-//     return acc}, 
-//     [])
-// }
-
 function flatten(arr) {
   if (Array.isArray(arr)) {
     let currentArr = []
@@ -40,3 +22,41 @@ function flatMap(arr, duplicate) {
   }
   return flatten(res)
 }
+
+
+//Task 2
+const obj = {
+  d: 12,
+  g: {
+    f: 45,
+    c: {
+      n: {
+        j: 12,
+      }
+    }
+  },
+  a: {
+    b: 43
+  }
+}
+
+function cloneObject(obj) {
+  const res = {};
+  const keys = Object.keys(obj)
+
+  let buffer = [...keys];
+
+  while (buffer.length > 0) {
+    const key = buffer.shift()
+    if (typeof obj[key] !== 'object') {
+      res[key] = obj[key]
+    } else {
+      res[key] = cloneObject(obj[key])
+    }
+  }
+
+  return res
+}
+
+//TODO: без рекурсии 
+console.log(cloneObject(obj).g.c === obj.g.c) 
