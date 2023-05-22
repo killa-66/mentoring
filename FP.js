@@ -61,3 +61,30 @@ function multiplyAll(arr) {
     })
   }
 }
+
+//5. Chain me
+function chain(input, fs) {
+  let res = 0
+  for (let i = 0; i < fs.length; i++) {
+    res = fs[i](input)
+    input = res
+  }
+  return res
+}
+
+//6. The Span Function
+function span(arr, predicate) {
+  const trueArr = [];
+  const falseArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (predicate(arr[i])) {
+      trueArr.push(arr[i])
+    } else {
+      for (let j = i; j < arr.length; j++) {
+        falseArr.push(arr[j])
+      }
+      break;
+    }
+  }
+  return [trueArr, falseArr]
+}
