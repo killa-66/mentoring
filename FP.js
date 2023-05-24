@@ -88,3 +88,41 @@ function span(arr, predicate) {
   }
   return [trueArr, falseArr]
 }
+
+//7. Function composition
+function compose(...fns) {
+  return function composed(result) {
+    for (let i = fns.length - 1; i >= 0; i--) {
+      result = fns[i](result);
+    }
+    return result;
+  }
+}
+
+//8. Lazy Repeater ??
+
+//9. ES6 ??
+
+//10. multi Filter
+var multiFilter = function (...filters) {
+  return function (element) {
+    return filters.every(filter => filter(element))
+  };
+};
+
+//11. Combinator flip
+const flip = fn => (...args) => fn(...args.reverse());
+
+//12. memo??
+
+//13. Once
+function once(fn) {
+  let hasCalled = false;
+
+  return function (...args) {
+    if (!hasCalled) {
+      hasCalled = true;
+      return fn.apply(this, args);
+    }
+  }
+}
